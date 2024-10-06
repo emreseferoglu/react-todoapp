@@ -16,11 +16,18 @@ function App() {
   };
   console.log(todo);
 
+  const removeTodo = (todoIndex) => {
+    setTodos([...todo.filter((data) => data.id !== todoIndex)]);
+  };
+
   return (
     <div className="app">
+      <h1 style={{ textAlign: "center", color: "#267198", fontSize: "45px" }}>
+        Todo-APP
+      </h1>
       <div className="app-container">
         <TodoCreate onCreateTodo={createTodo} />
-        <Todo todoList={todo} />
+        <Todo todoList={todo} onRemoveTodo={removeTodo} />
       </div>
     </div>
   );

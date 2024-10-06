@@ -12,7 +12,7 @@ interface TodoProps {
   todoList: Todo[];
 }
 
-function Todo({ todoList }: TodoProps) {
+function Todo({ todoList, onRemoveTodo }: TodoProps) {
   return (
     <div className="main-container">
       {todoList?.map((todo) => (
@@ -21,6 +21,7 @@ function Todo({ todoList }: TodoProps) {
           <div className="process-container">
             <div className="process">
               <IoMdClose
+                onClick={(event) => onRemoveTodo(todo.id)}
                 style={{
                   borderRadius: "50%",
                   background: "black",

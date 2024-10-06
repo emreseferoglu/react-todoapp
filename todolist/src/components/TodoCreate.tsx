@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import "../css/TodoCreate.css";
 
-function TodoCreate({ onCreateTodo }) {
+interface Todo {
+  id: number;
+  content: string;
+}
+
+interface TodoProps {
+  todoList: Todo[];
+}
+
+function TodoCreate({ onCreateTodo }: TodoProps) {
   const [newTodo, setNewTodo] = useState("");
 
   const createTodo = () => {
@@ -13,6 +22,7 @@ function TodoCreate({ onCreateTodo }) {
     };
 
     onCreateTodo(request);
+    setNewTodo("");
   };
 
   return (
